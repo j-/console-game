@@ -26,7 +26,8 @@
     "typescript": "^2.9.2"
   },
   "dependencies": {
-    "chalk": "^2.4.1"
+    "chalk": "^2.4.1",
+    "redux": "^4.0.0"
   },
   "jest": {
     "transform": {
