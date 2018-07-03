@@ -1,6 +1,9 @@
 import chalk from 'chalk';
 import { createStore } from 'redux';
-import { formatPosition } from './position';
+import { formatPosition, getDirection } from './position';
+import { getContents as getRoomContents } from './room';
+import { promptInput } from './prompt';
+import { movePlayer, enterRoom } from './actions';
 
 import rootReducer, {
 	isAlive,
@@ -30,14 +33,34 @@ const game = async (stdin: NodeJS.ReadStream, stdout: NodeJS.WriteStream) => {
 	let state = store.getState();
 
 	while (isAlive(state)) {
+		const position = getPosition(state);
 		const health = getHealth(state);
 		const score = getScore(state);
-		const position = getPosition(state);
 		stdout.write(`Health: ${chalk.bold(String(health))}. Score: ${chalk.bold(String(score))}.\n`);
 		stdout.write(`Position: ${chalk.bold(formatPosition(position))}.\n`);
-		stdout.write('\nWhich direction would you like to go? (N/E/S/W) ');
 
-		break;
+		try {
+			const question = '\nWhich direction would you like to go? (N/E/S/W) ';
+			const input = await promptInput(question, stdin, stdout);
+			const direction = getDirection(input);
+			stdout.write('\n');
+			store.dispatch(movePlayer(direction));
+			state = store.getState();
+		} catch (err) {
+			stdout.write('\n' + chalk.red('Could not go that way.') + '\n\n');
+			continue;
+		}
+
+		try {
+			const position = getPosition(state);
+			const contents = await getRoomContents(position);
+			store.dispatch(enterRoom(contents));
+			state = store.getState();
+		} catch (err) {
+			stdout.write(chalk.red('Something went wrong.') + '\n');
+			stdout.write('Goodbye.\n\n');
+			process.exit(1);
+		}
 	}
 
 	const score = getScore(state);
