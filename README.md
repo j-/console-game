@@ -2,6 +2,9 @@ Console Game
 ============
 
 
+![Screenshot](screenshot.png)
+
+
 Cloning
 -------
 
