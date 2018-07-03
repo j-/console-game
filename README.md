@@ -38,7 +38,8 @@ Running
     $ API_HOST=http://yourstubserver:8080/ npm start
 
 Set the `API_HOST` environment variable to configure the game server host name.
-By default the game will try to connect to `http://localhost:8080`.
+By default the game will try to connect to `http://localhost:8080/`. `API_HOST`
+must end with a `/` character.
 
 
 Assumptions
