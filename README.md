@@ -26,6 +26,8 @@ Building
 
     $ npm run build
 
+Build output will go to `dist/`.
+
 
 Running
 -------
