@@ -1,3 +1,3 @@
-import chalk from 'chalk';
+import game from './game';
 
-console.log(chalk.bold('Console game'));
+game(process.stdin, process.stdout);
