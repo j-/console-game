@@ -1,0 +1,19 @@
+{
+  "name": "console-game",
+  "version": "0.0.0",
+  "description": "\"Game of Life\" console game",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j-/console-game.git"
+  },
+  "author": "Jamie Hoeks <j@skeoh.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/j-/console-game/issues"
+  },
+  "homepage": "https://github.com/j-/console-game#readme"
+}
