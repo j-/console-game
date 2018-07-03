@@ -20,6 +20,7 @@
   "homepage": "https://github.com/j-/console-game#readme",
   "devDependencies": {
     "@types/chalk": "^2.2.0",
+    "@types/isomorphic-fetch": "0.0.34",
     "@types/jest": "^23.1.4",
     "jest": "^23.2.0",
     "ts-jest": "^23.0.0",
@@ -27,6 +28,8 @@
   },
   "dependencies": {
     "chalk": "^2.4.1",
+    "isomorphic-fetch": "^2.2.1",
+    "jest-fetch-mock": "^1.6.5",
     "redux": "^4.0.0"
   },
   "jest": {
@@ -37,6 +40,10 @@
     "moduleFileExtensions": [
       "ts",
       "js"
+    ],
+    "automock": false,
+    "setupFiles": [
+      "<rootDir>/setup-tests.js"
     ]
   }
 }
