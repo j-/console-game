@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -20,9 +20,22 @@
   "homepage": "https://github.com/j-/console-game#readme",
   "devDependencies": {
     "@types/chalk": "^2.2.0",
+    "@types/jest": "^23.1.4",
+    "jest": "^23.2.0",
+    "ts-jest": "^23.0.0",
     "typescript": "^2.9.2"
   },
   "dependencies": {
     "chalk": "^2.4.1"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    },
+    "testRegex": "\\.test\\.ts$",
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
   }
 }
