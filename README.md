@@ -30,4 +30,6 @@ Building
 Running
 -------
 
-    $ npm start
+    $ API_HOST=http://yourstubserver:8080/ npm start
+
+Set the `API_HOST` environment variable to configure the game server host name.
