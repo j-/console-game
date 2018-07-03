@@ -14,6 +14,13 @@ Installing
     $ npm install
 
 
+Testing
+-------
+
+    $ npm test
+    $ npm test -- --watch # Run tests in watch mode
+
+
 Building
 --------
 
